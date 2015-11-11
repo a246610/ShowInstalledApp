@@ -10,17 +10,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class ListAdapter extends ArrayAdapter<ApplicationInfo> {
     private Context context;
     private int resource;
-    private ArrayList<ApplicationInfo> listData;
+    private List<ApplicationInfo> listData;
     private PackageManager pm;
     private TextView appName, appPackage;
     private ImageView imageIcon;
 
-    public ListAdapter(Context context_, int resource_, ArrayList<ApplicationInfo> listData_) {
+    public ListAdapter(Context context_, int resource_, List<ApplicationInfo> listData_) {
         super(context_,resource_,listData_);
         this.context = context_;
         this.resource = resource_;
@@ -40,7 +40,7 @@ public class ListAdapter extends ArrayAdapter<ApplicationInfo> {
         ApplicationInfo tmp = listData.get(position);
         appName.setText(tmp.loadLabel(pm));
         appName.setText(tmp.packageName);
-        imageIcon.setImageDrawable(tmp.loadLogo(pm));
+        imageIcon.setImageDrawable(tmp.loadIcon(pm));
 
         return view;
     }
