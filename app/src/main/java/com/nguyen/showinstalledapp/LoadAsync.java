@@ -2,9 +2,12 @@ package com.nguyen.showinstalledapp;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -55,6 +58,14 @@ public class LoadAsync extends AsyncTask <Void,Void, ListAdapter>{
         super.onPostExecute(res);
 
         listView.setAdapter(res);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = pm.getLaunchIntentForPackage(listData.get(position).packageName);
+                context.startActivity(i);
+            }
+        });
+
         dialog.dismiss();
     }
 }

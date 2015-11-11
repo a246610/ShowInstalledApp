@@ -39,7 +39,7 @@ public class ListAdapter extends ArrayAdapter<ApplicationInfo> {
 
         ApplicationInfo tmp = listData.get(position);
         appName.setText(tmp.loadLabel(pm));
-        appName.setText(tmp.packageName);
+        appPackage.setText(tmp.packageName);
         imageIcon.setImageDrawable(tmp.loadIcon(pm));
 
         return view;
