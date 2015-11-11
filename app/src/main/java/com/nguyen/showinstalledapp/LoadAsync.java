@@ -63,8 +63,6 @@ public class LoadAsync extends AsyncTask <Void,Void, ListAdapter>{
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = pm.getLaunchIntentForPackage(listData.get(position).packageName);
                 context.startActivity(i);
-
-
             }
         });
 
