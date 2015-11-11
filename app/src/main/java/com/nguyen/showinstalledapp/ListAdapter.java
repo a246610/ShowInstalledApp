@@ -42,6 +42,7 @@ public class ListAdapter extends ArrayAdapter<ApplicationInfo> {
         appPackage.setText(tmp.packageName);
         imageIcon.setImageDrawable(tmp.loadIcon(pm));
 
+
         return view;
     }
 }
